@@ -1,6 +1,6 @@
 from z3 import And, Ints, Not, Or, Solver, sat
 
-from utils import convert_greenlights_to_routes, get_combinations
+from .utils import convert_greenlights_to_routes, get_combinations
 
 
 class Collision:
