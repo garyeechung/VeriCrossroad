@@ -37,12 +37,12 @@ class Collision:
         # collision constraint 1
         collision_constraints_1 = And(
             And(self.s1 < self.s2, self.s2 < self.e1),
-            Or(self.e1 < self.e2, self.e2 < self.s1)
+            Or(self.e1 < self.e2, self.e2 == self.s1)
         )
         # collision constraint 2
         collision_constraints_2 = And(
             self.e1 == self.s2,
-            self.e2 > self.s1,
+            self.e2 > self.s1,  # s1 < e2 < e1
             self.e2 < self.e1
         )
         self.solver.add(Or(collision_constraints_1, collision_constraints_2))
