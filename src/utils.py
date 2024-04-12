@@ -21,6 +21,8 @@ def get_combinations(routes, n_ways):
     for (s1, e1), (s2, e2) in route_pairs_candidates:
         if s1 == s2 or e1 == e2:
             continue
+        elif s1 == e2 and s2 == e1:
+            continue
         elif e1 == s2:
             route_pairs.append(((s1, e1), (s2, e2)))
         elif e2 == s1:
