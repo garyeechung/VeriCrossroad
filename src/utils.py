@@ -23,25 +23,12 @@ def get_combinations(routes, n_ways):
             continue
         elif s1 == e2 and s2 == e1:
             continue
-        elif e1 == s2:
-            route_pairs.append(((s1, e1), (s2, e2)))
-        elif e2 == s1:
-            route_pairs.append(((s2, e2), (s1, e1)))
         elif s1 > s2:
             route_pairs.append(((s2, e2), (s1, e1)))
         else:
             route_pairs.append(((s1, e1), (s2, e2)))
-    
-    shifted_route_pairs = []
-    for (s1, e1), (s2, e2) in route_pairs:
-        shift = s1
-        s1 = (s1 - shift) % n_ways
-        e1 = (e1 - shift) % n_ways
-        s2 = (s2 - shift) % n_ways
-        e2 = (e2 - shift) % n_ways
-        shifted_route_pairs.append(((s1, e1), (s2, e2), shift))
 
-    return shifted_route_pairs
+    return route_pairs
 
 if __name__ == '__main__':
     greenlights = {
